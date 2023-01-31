@@ -1,5 +1,5 @@
 const models = require("./models/index.js");
-const config = require('./config/config.json');
+const config = require('./config/config.js');
 
 
 const mysql = require('mysql');

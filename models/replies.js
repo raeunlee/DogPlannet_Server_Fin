@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       post_id: {
         type: DataTypes.UUID,
         allowNull: false,
-        //unique: True,
+        unique: true,
       },
       writer: {
         type: DataTypes.STRING,
@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       }
     });
-
+    /*
     reply.associate = function(models){
         reply.belongsTo(models.posts, {
             onDelete:'cascade',
@@ -25,6 +25,6 @@ module.exports = (sequelize, DataTypes) => {
               },
         })
       };
-
+      */
     return reply;
   };

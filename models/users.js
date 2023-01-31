@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     user_id:{
         type: DataTypes.UUID,
         allowNull:false,
-        //unique: True,
+        unique: true,
+        primaryKey: true
     },
     //이메일고정형식che
     user_email: {
@@ -45,7 +46,12 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   Users.associate = function(models) {
-    Users.hasMany(models.posts);
+
+    models.Users.hasMany(models.post, {
+        foreignKey: 'user_id',
+        onDelete: 'cascade',
+      });
+
   };
 
   return Users;

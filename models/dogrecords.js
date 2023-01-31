@@ -15,15 +15,16 @@ module.exports = (sequelize, DataTypes) => {
     },
     weight: {
         type: DataTypes.FLOAT,
-       // allowNull: true,
+        allowNull: true,
     },
     /*
     //array형식
     poop_type:{
         type: sequelize.ARRAY(sequelize.TEXT),
         defaultValue: ["정상","변비","설사"],
-        allowNull: true,
-    },*/
+        allowNull: True,
+    },
+    */
     sleep_time: {
         type: DataTypes.INTEGER,
         allowNull: true,
@@ -42,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
 });
-
+/*
 DogRecords.associate = function(models) {
   DogRecords.belongsTo(models.Users,{
         onDelete:'cascade',
@@ -51,6 +52,6 @@ DogRecords.associate = function(models) {
         }
     });
   };
-
+  */
   return DogRecords;
 };

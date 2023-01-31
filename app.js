@@ -2,9 +2,6 @@ const models = require("./models/index.js");
 const config = require('./config/config.json');
 const mysql = require('mysql2');
 
-
-// var mysql = require('mysql2');
-
 var connection = mysql.createConnection({
     host     : config.development.host,
     user     : config.development.username,

@@ -1,18 +1,18 @@
 'use strict';
-
-const { DataTypes } = require("sequelize");
-
 module.exports = (sequelize, DataTypes) => {
+ 
   const DogInfos = sequelize.define('DogInfos', {
     user_id:{
       type: DataTypes.UUID,
       allowNull: false,
-      unique: true,
+      unique: True,
     },
     dog_name: {
         type: DataTypes.STRING,
         allowNull: false,
     },
+  
+    /*
     //array형식
     dog_type: {
       type: sequelize.ARRAY(sequelize.TEXT),
@@ -23,9 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     dog_sex:{
       type: sequelize.ARRAY(sequelize.TEXT),
       defaultValue: ["암컷","수컷"],
-      allowNull: true,
-  },
-  // 받아올때 년도만 받아오세요.
+      allowNull: True,
+  },// 받아올때 년도만 받아오세요.
     dog_birthyear: {
         type: DataTypes.DATEONLY,
         allowNull: true,

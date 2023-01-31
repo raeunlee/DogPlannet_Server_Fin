@@ -1,8 +1,10 @@
+const { DataTypes } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
+    
     const post = sequelize.define('post', {
       post_id: {
         type: DataTypes.UUID,
-        allowNull: False,
+        allowNull: false,
         unique: True,
       },
       title: {
@@ -23,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       user_id:{
         type: DataTypes.UUID,
-        allowNull: False,
+        allowNull:false,
         unique: True,
     },
     });

@@ -1,43 +1,46 @@
+const { DataTypes } = require("sequelize");
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
+  
   const DogRecords = sequelize.define('DogRecords', {
     user_id:{
       type: DataTypes.UUID,
-      allowNull: false,
-      unique: true,
-    }, 
+      allowNull:false,
+      unique: True,
+    },
     date: {
         type: DataTypes.DATEONLY,
-        allowNull: false,
-    }, 
+        allowNull: False,
+    },
     weight: {
         type: DataTypes.Float,
-        allowNull: true,
-    }, 
+        allowNull: True,
+    },
     //array형식
     poop_type:{
-        type: Sequelize.ARRAY(Sequelize.TEXT),
+        type: sequelize.ARRAY(sequelize.TEXT),
         defaultValue: ["정상","변비","설사"],
-        allowNull: true,
-    }, 
+        allowNull: True,
+    },
     sleep_time: {
         type: DataTypes.Integer,
-        allowNull: true,
+        allowNull: True,
     }, 
     walk_time: {
       type: DataTypes.Integer,
       allowNull: True,
-    }, 
+    },
     walk_distance: {
       type: DataTypes.Integer,
       allowNull: True,
-    }, 
+    },
     //이게 이미지입니다.
     mydog: {
       type: DataTypes.BLOB('long'),
-      allowNull: false,
-    }, 
-}); 
+      allowNull: False,
+    },
+});
 
 DogRecords.associate = function(models) {
   DogRecords.belongsTo(models.Users,{

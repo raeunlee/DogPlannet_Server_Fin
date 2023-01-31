@@ -1,14 +1,16 @@
+const { DataTypes } = require("sequelize");
 'use strict';
 module.exports = (sequelize, DataTypes) => {
+  
   const Users = sequelize.define('Users', {
     user_id:{
         type: DataTypes.UUID,
-        allowNull:False,
+        allowNull:false,
         unique: True,
     },
     //이메일고정형식
     user_email: {
-        type: DataTypes.String,
+        type: DataTypes.STRING,
         allowNull: false,
         validate:{
           isEmail: true,
@@ -24,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     myprofile: {
       type: DataTypes.BLOB('long'),
-      allowNull: False,
+      allowNull: false,
     },
   });
 

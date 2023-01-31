@@ -3,9 +3,12 @@
     "username": "root",
     "password": "Gusdn4772!",
     "database": "dogplannet",
-    "host": "dogplannet.cn32ewkhaqwz.ap-northeast-2.rds.amazonaws.com",
-    "dialect": "mysql"
+    "host": "dogplannetdb.cn32ewkhaqwz.ap-northeast-2.rds.amazonaws.com",
+    "dialect": "mysql",
+    "charset": "utf8mb4",
+    "collate": "utf8mb4_unicode_ci"
   },
+
   "test": {
     "username": "root",
     "password": null,
@@ -13,6 +16,7 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
+
   "production": {
     "username": "root",
     "password": null,

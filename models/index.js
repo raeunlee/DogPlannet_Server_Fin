@@ -1,4 +1,3 @@
-
 'use strict';
 
 const fs = require('fs');
@@ -10,13 +9,12 @@ const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
-
 let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+console.log(config)
+
+sequelize = new Sequelize("dogplannet", "root", "Gusdn4722!", 
+  {"host": "dogplannetdb.cn32ewkhaqwz.ap-northeast-2.rds.amazonaws.com",
+  "dialect": "mysql"});
 
 fs
   .readdirSync(__dirname)

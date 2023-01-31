@@ -5,26 +5,26 @@ module.exports = (sequelize, DataTypes) => {
       post_id: {
         type: DataTypes.UUID,
         allowNull: false,
-        unique: True,
+        unique: true,
       },
       writer: {
         type: DataTypes.STRING,
-        allowNull: False,
+        allowNull: false,
       },
       content: {
         type: DataTypes.TEXT,
-        allowNull: False,
+        allowNull: false,
       }
     });
-
+    /*
     reply.associate = function(models){
         reply.belongsTo(models.posts, {
             onDelete:'cascade',
             foreignKey: {
-                allowNull: False,
+                allowNull: false,
               },
         })
       };
-
+      */
     return reply;
   };

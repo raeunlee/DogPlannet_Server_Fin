@@ -7,41 +7,43 @@ module.exports = (sequelize, DataTypes) => {
     user_id:{
       type: DataTypes.UUID,
       allowNull:false,
-      unique: True,
+      unique: true,
     },
     date: {
         type: DataTypes.DATEONLY,
-        allowNull: False,
+        allowNull: false,
     },
     weight: {
-        type: DataTypes.Float,
-        allowNull: True,
+        type: DataTypes.FLOAT,
+        allowNull: true,
     },
+    /*
     //array형식
     poop_type:{
         type: sequelize.ARRAY(sequelize.TEXT),
         defaultValue: ["정상","변비","설사"],
         allowNull: True,
     },
+    */
     sleep_time: {
-        type: DataTypes.Integer,
-        allowNull: True,
+        type: DataTypes.INTEGER,
+        allowNull: true,
     }, 
     walk_time: {
-      type: DataTypes.Integer,
-      allowNull: True,
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
     walk_distance: {
-      type: DataTypes.Integer,
-      allowNull: True,
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
     //이게 이미지입니다.
     mydog: {
       type: DataTypes.BLOB('long'),
-      allowNull: False,
+      allowNull: false,
     },
 });
-
+/*
 DogRecords.associate = function(models) {
   DogRecords.belongsTo(models.Users,{
         onDelete:'cascade',
@@ -50,6 +52,6 @@ DogRecords.associate = function(models) {
         }
     });
   };
-
+  */
   return DogRecords;
 };

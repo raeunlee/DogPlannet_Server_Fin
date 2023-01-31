@@ -2,16 +2,16 @@ module.exports = (sequelize, DataTypes) => {
     const reply = sequelize.define('reply', {
       post_id: {
         type: DataTypes.UUID,
-        allowNull: false,
+        allowNull: False,
         unique: True,
       },
       writer: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: False,
       },
       content: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: False,
       }
     });
 
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         reply.belongsTo(models.posts, {
             onDelete:'cascade',
             foreignKey: {
-                allowNull: false,
+                allowNull: False,
               },
         })
       };

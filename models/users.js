@@ -3,22 +3,24 @@ module.exports = (sequelize, DataTypes) => {
   const Users = sequelize.define('Users', {
     user_id:{
         type: DataTypes.UUID,
-        allowNull:false,
+        allowNull:False,
         unique: True,
     },
     //이메일고정형식
     user_email: {
         type: DataTypes.String,
         allowNull: false,
-        isEmail: true,
+        validate:{
+          isEmail: true,
+        }
     },
     user_password: {
         type:DataTypes.STRING,
-        allowNull:false,
+        allowNull:False,
     },
     user_name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: False,
     },
     myprofile: {
       type: DataTypes.BLOB('long'),

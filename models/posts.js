@@ -2,28 +2,28 @@ module.exports = (sequelize, DataTypes) => {
     const post = sequelize.define('post', {
       post_id: {
         type: DataTypes.UUID,
-        allowNull: false,
+        allowNull: False,
         unique: True,
       },
       title: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: False,
       },
       writer: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: False,
       },
       content: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: False,
       },
       like: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: False,
       },
       user_id:{
         type: DataTypes.UUID,
-        allowNull:false,
+        allowNull: False,
         unique: True,
     },
     });

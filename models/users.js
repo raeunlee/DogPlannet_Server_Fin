@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
         primaryKey: true
     },
-    //이메일고정형식
+    //이메일고정형식che
     user_email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -46,10 +46,12 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   Users.associate = function(models) {
+
     models.Users.hasMany(models.post, {
         foreignKey: 'user_id',
         onDelete: 'cascade',
       });
+
   };
 
   return Users;

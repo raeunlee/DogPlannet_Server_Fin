@@ -5,39 +5,38 @@ module.exports = (sequelize, DataTypes) => {
       post_id: {
         type: DataTypes.UUID,
         allowNull: false,
-        unique: True,
       },
       title: {
         type: DataTypes.STRING,
-        allowNull: False,
+        allowNull: false,
       },
       writer: {
         type: DataTypes.STRING,
-        allowNull: False,
+        allowNull: false,
       },
       content: {
         type: DataTypes.STRING,
-        allowNull: False,
+        allowNull: false,
       },
       like: {
         type: DataTypes.INTEGER,
-        allowNull: False,
+        allowNull: false,
       },
       user_id:{
         type: DataTypes.UUID,
         allowNull:false,
-        unique: True,
+        unique: true,
     },
     });
 
     post.associate = function (models) {
-        post.hasMany(models.replies, {
+        post.hasMany(models.reply, {
         foreignKey: 'post_id',
         onDelete: 'cascade',
       });
     };
-
-    post.associate = function(models){
+    /*
+    post.associate = function(models){  
       post.belongsTo(models.users, {
           onDelete:'cascade',
           foreignKey: {
@@ -45,6 +44,6 @@ module.exports = (sequelize, DataTypes) => {
             },
       })
     };
-
+    */
     return post;
   };

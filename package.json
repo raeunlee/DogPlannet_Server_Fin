@@ -17,5 +17,13 @@
     "mysql2": "^3.1.0",
     "sequelize": "^6.28.0",
     "body-parser": "latest"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoggPlannet/DogPlannet_Server_Fin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DoggPlannet/DogPlannet_Server_Fin/issues"
+  },
+  "homepage": "https://github.com/DoggPlannet/DogPlannet_Server_Fin#readme"
 }

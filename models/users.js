@@ -31,28 +31,5 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  Users.associate = function(models) {
-    models.Users.hasMany(models.DogInfos, {
-        foreignKey: 'user_id',
-        onDelete: 'cascade',
-      });
-  };
-
-  Users.associate = function(models) {
-    models.Users.hasMany(models.DogRecords, {
-        foreignKey: 'user_id',
-        onDelete: 'cascade',
-      });
-  };
-
-  Users.associate = function(models) {
-
-    models.Users.hasMany(models.post, {
-        foreignKey: 'user_id',
-        onDelete: 'cascade',
-      });
-
-  };
-
   return Users;
 };

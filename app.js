@@ -1,7 +1,6 @@
 const models = require("./models/index.js");
 const config = require('./config/config.js');
 
-
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({

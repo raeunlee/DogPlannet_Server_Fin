@@ -30,15 +30,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
     }, 
 });
-  /*
-  DogInfos.associate = function(models) {
-    DogInfos.belongsTo(models.Users,{
-        onDelete:'cascade',
-        foreignKey: {
-            allowNull:false,
-        }
-    });
-  }
-  */
+
   return DogInfos;
 }

@@ -17,14 +17,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.FLOAT,
         allowNull: true,
     },
-    /*
-    //array형식
     poop_type:{
-        type: sequelize.ARRAY(sequelize.TEXT),
-        defaultValue: ["정상","변비","설사"],
-        allowNull: True,
-    },
-    */
+      type: DataTypes.ARRAY(DataTypes.STRING)
+    }, 
     sleep_time: {
         type: DataTypes.INTEGER,
         allowNull: true,

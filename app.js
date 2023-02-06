@@ -17,3 +17,7 @@ models.sequelize.sync().then( () => {
     console.log("연결 실패");
     console.log(err);
 })
+
+module.exports = {
+    connection:connection
+};

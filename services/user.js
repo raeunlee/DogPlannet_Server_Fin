@@ -1,4 +1,5 @@
-const {pool} = require("../../../config/database");
+const {logger} = require("../../../config/winston");
+const {development} = require("../config/config")
 const userModel = require("../models/user");
 const baseResponse = require("../../../config/baseResponseStatus");
 const {response} = require("../../../config/response");
@@ -24,7 +25,7 @@ exports.createUser = async function (email, password, username) {
 
         const insertUserInfoParams = [email, hashedPassword, username];
 
-        const connection = await pool.getConnection(async (conn) => conn);
+        const connection = await development.getConnection(async (conn) => conn);
 
         const userIdResult = await userModel.insertUserInfo(connection, insertUserInfoParams);
         console.log(`추가된 회원 : ${userIdResult[0].insertId}`)
@@ -96,7 +97,7 @@ exports.postSignIn = async function (email, password) {
 exports.editUser = async function (id, nickname) {
     try {
         console.log(id)
-        const connection = await pool.getConnection(async (conn) => conn);
+        const connection = await development.getConnection(async (conn) => conn);
         const editUserResult = await userDao.updateUserInfo(connection, id, nickname)
         connection.release();
 
@@ -113,14 +114,14 @@ exports.editUser = async function (id, nickname) {
 // READ 로직
 exports.retrieveUserList = async function (email) {
     if (!email) {
-      const connection = await pool.getConnection(async (conn) => conn);
+      const connection = await development.getConnection(async (conn) => conn);
       const userListResult = await userModel.selectUser(connection);
       connection.release();
   
       return userListResult;
   
     } else {
-      const connection = await pool.getConnection(async (conn) => conn);
+      const connection = await development.getConnection(async (conn) => conn);
       const userListResult = await userModel.selectUserEmail(connection, email);
       connection.release();
   
@@ -129,7 +130,7 @@ exports.retrieveUserList = async function (email) {
   };
   
   exports.retrieveUser = async function (email) {
-    const connection = await pool.getConnection(async (conn) => conn);
+    const connection = await development.getConnection(async (conn) => conn);
     const userResult = await userModel.selectUserEmail(connection, email);
   
     connection.release();
@@ -138,7 +139,7 @@ exports.retrieveUserList = async function (email) {
   };
   
   exports.emailCheck = async function (email) {
-    const connection = await pool.getConnection(async (conn) => conn);
+    const connection = await development.getConnection(async (conn) => conn);
     const emailCheckResult = await userModel.selectUserEmail(connection, email);
     connection.release();
   
@@ -146,7 +147,7 @@ exports.retrieveUserList = async function (email) {
   };
   
   exports.passwordCheck = async function (selectUserPasswordParams) {
-    const connection = await pool.getConnection(async (conn) => conn);
+    const connection = await development.getConnection(async (conn) => conn);
     const passwordCheckResult = await userModel.selectUserPassword(
         connection,
         selectUserPasswordParams
@@ -156,7 +157,7 @@ exports.retrieveUserList = async function (email) {
   };
   
   exports.accountCheck = async function (email) {
-    const connection = await pool.getConnection(async (conn) => conn);
+    const connection = await development.getConnection(async (conn) => conn);
     const userAccountResult = await userModel.selectUserAccount(connection, email);
     connection.release();
   

@@ -2,10 +2,18 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-
-
-
 const port = 3306
+
+//application Controllers for Routes
+const doginfoRouter = require('../routes/doginfo');
+
+
+//application routes
+app.use('/doginfo', doginfoRouter);
+
+
+
+
 
 
 

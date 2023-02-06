@@ -20,10 +20,6 @@ module.exports = (sequelize, DataTypes) => {
     poop_type:{
       type: DataTypes.ARRAY(DataTypes.STRING)
     }, 
-    sleep_time: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-    }, 
     walk_time: {
       type: DataTypes.INTEGER,
       allowNull: true,

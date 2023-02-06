@@ -1,6 +1,8 @@
 const { doginfos, validateData } = require('../models/doginfos');
 const { dogrecords, validateData} = require('../models/dogrecords');
 const sequelize = require('sequelize');
+const dogRecordService = require('../services/dogrecord');
+
 
 
 //강아지 기본 정보 받아오기
@@ -32,9 +34,9 @@ exports.savedogrecords = async (req, res) => {
       date: req.body.date,
       weight: req.body.weight,
       poop_type: req.body.poop_type,
-      distance: req.body.distance,
-      time: req.body.time,
-      image: req.body.image
+      walk_distance: req.body.distance,
+      walk_time: req.body.time,
+      mydog: req.body.image
     });
   
     try {
@@ -45,19 +47,14 @@ exports.savedogrecords = async (req, res) => {
     }
   };
 
-//강아지의 날짜에 맞는 기록 보내기
-exports.getByDate = async (req, res) => {
-    const date = req.params.date;
+//날짜와 id에 맞는 강아지의 기록 보내기
+  exports.getDogRecords = async (req, res) => {
+    const { date, user_id } = req.params;
   
     try {
-      const data = await dogrecords.findAll({
-        where: {
-          date: date
-        }
-      });
-      if (!data) return res.status(404).send({ message: 'Data not found' });
-      res.send(data);
+      const dogRecords = await dogRecordService.getDogRecords(date, user_id);
+      res.json(dogRecords);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      res.status(500).send(error);
     }
   };

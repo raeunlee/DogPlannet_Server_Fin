@@ -1,18 +1,14 @@
 const doginfoModel = require("../models/doginfos");
-const dogrecordModel = require("../models/dogrecords");
+const dogrecords = require("../models/dogrecords");
 
 
-//강아지 기본 정보 저장하기
-const savedoginfo = async ({ name, dogtype, dogsex, birthYear }) => {
-
-};
-
-//강아지 기록 저장하기
-const savedogrecords = async({weight, poop_type, distance, time, date, mydog}) => {
-
-};
-
-//강아지 기록 보내기
-const senddogstatus = async(data) => {
-
+//강아지 기록 가공하기.
+exports.getDogRecords = (date, userId) =>{
+    return dogrecords.findAll({
+        where:{
+            date,
+            user_id:userId,
+        },
+        attributes: ['weight','poop_type','walk_time', 'walk_distance']
+    });
 };

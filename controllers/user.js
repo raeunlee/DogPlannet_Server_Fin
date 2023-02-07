@@ -155,14 +155,15 @@ exports.login = async function (req, res) {
 };
 
 
-// 회원정보수정은 추후에 
-/**
- * API No. 5
+
+// 멍플에는 회원정보 수정의 경우 비밀번호 수정만 존재함 현재 비밀번호를 맞게 썼는지 확인만 하면 됨 
+/*** API No. 5
  * API Name : 회원 정보 수정 API + JWT + Validation
  * [PATCH] /app/users/:userId
  * path variable : userId
- * body : nickname
-exports.patchUsers = async function (req, res) {
+ * body : nickname 
+ **/
+/** exports.patchUsers = async function (req, res) {
 
     // jwt - userId, path variable :userId
 
@@ -179,22 +180,17 @@ exports.patchUsers = async function (req, res) {
         const editUserInfo = await userService.editUser(userId, nickname)
         return res.send(editUserInfo);
     }
-};
-*/
+};*/
 
 
-
-
-
-
-
-/*
 
 /** JWT 토큰 검증 API
  * [GET] /app/auto-login
-exports.check = async function (req, res) {
+ */
+/** exports.check = async function (req, res) {
     const userIdResult = req.verifiedToken.userId;
     console.log(userIdResult);
     return res.send(response(baseResponse.TOKEN_VERIFICATION_SUCCESS));
 };
 */
+

@@ -5,16 +5,11 @@ const app = express();
 const port = 3000
 
 //application Controllers for Routes
-const doginfoRouter = require('../routes/doginfo');
-
+const doginfoRouter = require('./routes/doginfo');
 
 //application routes
 app.use(express.json());
 app.use('/doginfo', doginfoRouter);
-
-
-
-
 
 
 

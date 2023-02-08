@@ -10,9 +10,8 @@ const db = {};
 const { Sequelize, DataTypes } = require('sequelize');
 const dogrecords = require("./dogrecords.js");
 const doginfos = require("./doginfos.js");
-const models = require("./models/index.js");
+const models = require("../models/index.js");
 const users = require('./users');
-const config = require('./config/config.js');
 const mysql = require('mysql');
 
 let sequelize;
@@ -22,13 +21,14 @@ sequelize = new Sequelize("dogplannet", "root", "Gusdn4722!",
   {"host": "dogplannetdb.cn32ewkhaqwz.ap-northeast-2.rds.amazonaws.com",
   "dialect": "mysql"});
 
+  /*
 const connection = mysql.createConnection({
     host     : config.development.host,
     user     : config.development.username,
     password : config.development.password,
     database : config.development.database
   });
-
+*/
 
 fs
   .readdirSync(__dirname)

@@ -21,7 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     poop_type:{
-      type: DataTypes.ARRAY(DataTypes.STRING)
+      type: DataTypes.ENUM,
+      values: ["정상","변비","설사"],
+      allowNull: false
     }, 
 
     walk_time: {

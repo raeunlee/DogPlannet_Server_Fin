@@ -1,14 +1,19 @@
-const express = require('express');
+var express = require('express')
+var bodyParser = require('body-parser')
 const doginfoController = require("../controllers/doginfo");
-const commentRecordController = require('../controllers/comment');
+const comment = require('../controllers/comment');
 
 const router = express.Router();
 
-router.post('/comment',commentRecordController);
-router.get
+router.get('/test', comment.getTest)
+// 댓글 저장
+router.post('/post',comment.postComment);
+// 댓글 전체 조회
+router.get('/:id',comment.findComment);
+// 댓글 수정
+router.patch('/:id',comment.updateComment);
 
-module.exports 
+router.delete('/:id',comment.deleteComment);
 
-// 댓글 쓰기 -> post id
-// 한 게시글에만 존재해야 한다.
-// 한 게시글은 여러 댓글들을 소유하고 있는 것
+module.exports = router;
+

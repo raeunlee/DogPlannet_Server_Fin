@@ -1,5 +1,5 @@
 // 미들웨어들
-// import { logger } from "./config/winston"
+const logger = require('./config/winston')
 const express = require('express');
 const path = require('path');
 const app = express();

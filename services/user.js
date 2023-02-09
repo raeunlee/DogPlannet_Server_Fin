@@ -1,7 +1,8 @@
-// const {logger} = require("../../../config/winston");
+const {logger} = require("../config/winston");
 const {development} = require("../config/config")
 const userModel = require('../models/users');
 const baseResponse = require("../config/baseResponseStatus")
+const secret_config = require("../config/secret");
 const {response} = require("../config/response");
 const {errResponse} = require("../config/response");
 
@@ -11,6 +12,7 @@ const {connect} = require("http2");
 
 // Service: Create, Update, Delete 비즈니스 로직
 
+// 회원가입
 exports.createUser = async function (email, password, username) {
     try {
         // 이메일 중복 확인
@@ -39,7 +41,7 @@ exports.createUser = async function (email, password, username) {
     }
 };
 
-
+//로그인
 exports.postSignIn = async function (email, password) {
     try {
         // 이메일 여부 확인
@@ -75,7 +77,7 @@ exports.postSignIn = async function (email, password) {
         //토큰 생성 Service
         let token = await jwt.sign(
             {
-                useremail: userInfoRows[0].email,
+                userEmail: userInfoRows[0].userEmail, //이메일만 생성
             }, // 토큰의 내용(payload)
             secret_config.jwtsecret, // 비밀키
             {
@@ -93,7 +95,7 @@ exports.postSignIn = async function (email, password) {
 };
 
 
-/*
+// 회원정보 수정
 exports.editUser = async function (id, nickname) {
     try {
         console.log(id)
@@ -108,11 +110,10 @@ exports.editUser = async function (id, nickname) {
         return errResponse(baseResponse.DB_ERROR);
     }
 }
-*/
 
 
 // READ 로직
-exports.retrieveUserList = async function (email) {
+ exports.retrieveUserList = async function (email) {
     if (!email) {
       const connection = await development.getConnection(async (conn) => conn);
       const userListResult = await userModel.selectUser(connection);

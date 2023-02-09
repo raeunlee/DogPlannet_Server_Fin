@@ -18,9 +18,9 @@ payload : 전달되는 데이터
 signature : 헤더와 페이로드의 전자서명
 */
 const jwtMiddleware = require('../config/JwtMiddelWare');
-const userService = require("../services/user")
-const baseResponse = require("../config/baseResponseStatus")
-
+const userService = require("../services/user");
+const baseResponse = require("../config/baseResponseStatus");
+const {logger} = require("../config/winston");
 const {response} = require("../config/response");
 const {errResponse} = require("../config/response");
 
@@ -156,23 +156,19 @@ exports.login = async function (req, res) {
     return res.send(signInResponse);
 };
 
-
-
-// 멍플에는 회원정보 수정의 경우 비밀번호 수정만 존재함 현재 비밀번호를 맞게 썼는지 확인만 하면 됨 
+/** */
 /*** API No. 5
  * API Name : 회원 정보 수정 API + JWT + Validation
- * [PATCH] /app/users/:userId
- * path variable : userId
+ * [PATCH] /app/users/:userEmail
+ * path variable : userEmail
  * body : nickname 
  **/
-exports.patchUsers = async function (req, res) {
+/**
+ * exports.patchUsers = async function (req, res) {
 
-    // jwt - userId, path variable :userId
+    // jwt - userEmail, path variable :userEmail
 
-    const userIdFromJWT = req.verifiedToken.userId
-
-    const userId = req.params.userId;
-    const nickname = req.body.nickname;
+    const userEmail = req.params.userEmail;
 
     if (userIdFromJWT != userId) {
         res.send(errResponse(baseResponse.USER_ID_NOT_MATCH));
@@ -183,6 +179,7 @@ exports.patchUsers = async function (req, res) {
         return res.send(editUserInfo);
     }
 };
+*/
 
 
 

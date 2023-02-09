@@ -17,10 +17,12 @@ header : 토큰의 타입, 데이터 서명 방식 명시
 payload : 전달되는 데이터
 signature : 헤더와 페이로드의 전자서명
 */
-const jwtMiddleware = require("../../../config/jwtMiddleware");
-const userService = require("../services/user")
-const baseResponse = require("../../../config/baseResponseStatus");
-const {response, errResponse} = require("../../../config/response");
+const jwtMiddleware = require('../config/JwtMiddelWare');
+const userService = require("../services/user");
+const baseResponse = require("../config/baseResponseStatus");
+const {logger} = require("../config/winston");
+const {response} = require("../config/response");
+const {errResponse} = require("../config/response");
 
 const regexEmail = require("regex-email"); //자바스크립트 이메일 유효성 검사
 const {emit} = require("nodemon");
@@ -122,7 +124,7 @@ exports.getUsers = async function (req, res) {
  * API Name : 특정 유저 조회 API
  * [GET] /app/users/{useremail}
  */
-exports.getUserById = async function (req, res) {
+exports.getUserByEmail = async function (req, res) {
 
     /**
      * Path Variable: userEmail
@@ -154,22 +156,19 @@ exports.login = async function (req, res) {
     return res.send(signInResponse);
 };
 
-
-// 회원정보수정은 추후에 
-/**
- * API No. 5
+/** */
+/*** API No. 5
  * API Name : 회원 정보 수정 API + JWT + Validation
- * [PATCH] /app/users/:userId
- * path variable : userId
- * body : nickname
-exports.patchUsers = async function (req, res) {
+ * [PATCH] /app/users/:userEmail
+ * path variable : userEmail
+ * body : nickname 
+ **/
+/**
+ * exports.patchUsers = async function (req, res) {
 
-    // jwt - userId, path variable :userId
+    // jwt - userEmail, path variable :userEmail
 
-    const userIdFromJWT = req.verifiedToken.userId
-
-    const userId = req.params.userId;
-    const nickname = req.body.nickname;
+    const userEmail = req.params.userEmail;
 
     if (userIdFromJWT != userId) {
         res.send(errResponse(baseResponse.USER_ID_NOT_MATCH));
@@ -184,17 +183,13 @@ exports.patchUsers = async function (req, res) {
 
 
 
-
-
-
-
-/*
-
 /** JWT 토큰 검증 API
  * [GET] /app/auto-login
+ */
 exports.check = async function (req, res) {
     const userIdResult = req.verifiedToken.userId;
     console.log(userIdResult);
     return res.send(response(baseResponse.TOKEN_VERIFICATION_SUCCESS));
 };
-*/
+
+

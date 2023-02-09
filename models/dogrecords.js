@@ -17,17 +17,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.FLOAT,
         allowNull: true,
     },
-    /*
-    //array형식
     poop_type:{
-        type: sequelize.ARRAY(sequelize.TEXT),
-        defaultValue: ["정상","변비","설사"],
-        allowNull: True,
-    },
-    */
-    sleep_time: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
+      type: DataTypes.ARRAY(DataTypes.STRING)
     }, 
     walk_time: {
       type: DataTypes.INTEGER,
@@ -43,15 +34,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
 });
-/*
-DogRecords.associate = function(models) {
-  DogRecords.belongsTo(models.Users,{
-        onDelete:'cascade',
-        foreignKey: {
-            allowNull:false,
-        }
-    });
-  };
-  */
+
   return DogRecords;
 };

@@ -1,9 +1,9 @@
-const {logger} = require("../../../config/winston");
+// const {logger} = require("../../../config/winston");
 const {development} = require("../config/config")
-const userModel = require("../models/user");
-const baseResponse = require("../../../config/baseResponseStatus");
-const {response} = require("../../../config/response");
-const {errResponse} = require("../../../config/response");
+const userModel = require('../models/users');
+const baseResponse = require("../config/baseResponseStatus")
+const {response} = require("../config/response");
+const {errResponse} = require("../config/response");
 
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");

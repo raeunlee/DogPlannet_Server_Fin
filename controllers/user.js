@@ -17,10 +17,12 @@ header : 토큰의 타입, 데이터 서명 방식 명시
 payload : 전달되는 데이터
 signature : 헤더와 페이로드의 전자서명
 */
-const jwtMiddleware = require("../../../config/jwtMiddleware");
+const jwtMiddleware = require('../config/JwtMiddelWare');
 const userService = require("../services/user")
-const baseResponse = require("../../../config/baseResponseStatus");
-const {response, errResponse} = require("../../../config/response");
+const baseResponse = require("../config/baseResponseStatus")
+
+const {response} = require("../config/response");
+const {errResponse} = require("../config/response");
 
 const regexEmail = require("regex-email"); //자바스크립트 이메일 유효성 검사
 const {emit} = require("nodemon");
@@ -122,7 +124,7 @@ exports.getUsers = async function (req, res) {
  * API Name : 특정 유저 조회 API
  * [GET] /app/users/{useremail}
  */
-exports.getUserById = async function (req, res) {
+exports.getUserByEmail = async function (req, res) {
 
     /**
      * Path Variable: userEmail
@@ -163,7 +165,7 @@ exports.login = async function (req, res) {
  * path variable : userId
  * body : nickname 
  **/
-/** exports.patchUsers = async function (req, res) {
+exports.patchUsers = async function (req, res) {
 
     // jwt - userId, path variable :userId
 
@@ -180,17 +182,17 @@ exports.login = async function (req, res) {
         const editUserInfo = await userService.editUser(userId, nickname)
         return res.send(editUserInfo);
     }
-};*/
+};
 
 
 
 /** JWT 토큰 검증 API
  * [GET] /app/auto-login
  */
-/** exports.check = async function (req, res) {
+exports.check = async function (req, res) {
     const userIdResult = req.verifiedToken.userId;
     console.log(userIdResult);
     return res.send(response(baseResponse.TOKEN_VERIFICATION_SUCCESS));
 };
-*/
+
 

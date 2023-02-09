@@ -29,21 +29,5 @@ module.exports = (sequelize, DataTypes) => {
     },
     });
 
-    post.associate = function (models) {
-        post.hasMany(models.reply, {
-        foreignKey: 'post_id',
-        onDelete: 'cascade',
-      });
-    };
-    /*
-    post.associate = function(models){  
-      post.belongsTo(models.users, {
-          onDelete:'cascade',
-          foreignKey: {
-              allowNull: false,
-            },
-      })
-    };
-    */
     return post;
   };

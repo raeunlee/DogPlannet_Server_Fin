@@ -1,5 +1,5 @@
 const { doginfos, validateData } = require('../models/doginfos');
-const { dogrecords } = require('../models/dogrecords');
+const dogrecords = require('../models/dogrecords');
 const sequelize = require('sequelize');
 const dogRecordService = require('../services/doginfo');
 

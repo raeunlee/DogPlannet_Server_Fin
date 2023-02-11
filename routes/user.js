@@ -4,7 +4,7 @@ const jwtMiddleware = require('../config/JwtMiddelWare');
 const userController = require('../controllers/user');
 
 
- // 0. 테스트 API
+ // 0. 연결 테스트 API
  router.get('/test', userController.getTest)
 
  // 1. 유저 생성 (회원가입) API
@@ -20,7 +20,7 @@ const userController = require('../controllers/user');
  router.post('/login', userController.login);
 
  // 5. 회원 정보 수정 API (JWT 검증 및 Validation - 메소드 체이닝 방식으로 jwtMiddleware 사용)
- //router.patch('/:userEmail', jwtMiddleware, userController.patchUsers)
+ router.patch('/:userEmail', jwtMiddleware, userController.patchUsers)
  module.exports = router;
 
 

@@ -1,22 +1,4 @@
-// User 컨트롤러 - 요청 받고 서비스 계층에서 받은 데이터로 응답하기, 비즈니스 로직 분리할것
-/*
-jwt?
-1. 사용자가 아이디 패스워드로 로그인 (우리는 이메일)
-2. 서버는 시크릿 키를 통해 접근 토큰 발급
-3. 사용자에게 JWT 전달
-4. 로그인이 필요한 API호출시 헤더에 JWT를 담아 전송함
-5. 서버에서 JWT 서명을 확인하고 시크릿 키로 JWT를 디코드하여 사용자 정보 획득
-6. 서버에서 유저를 인식하고 요청 사항에 응답
 
-node jwt 구현 예제 
-https://charming-kyu.tistory.com/4
-
-JWT의 구성은 다음과 같이 이루어져있다.
-
-header : 토큰의 타입, 데이터 서명 방식 명시
-payload : 전달되는 데이터
-signature : 헤더와 페이로드의 전자서명
-*/
 const jwtMiddleware = require('../config/JwtMiddelWare');
 const userService = require("../services/user");
 const baseResponse = require("../config/baseResponseStatus");
@@ -30,7 +12,7 @@ const {emit} = require("nodemon");
 /**
  * API No. 0
  * API Name : 테스트 API
- * [GET] /app/test
+ * [GET] /user/test
  */
 
 exports.getTest = async function (req, res) {
@@ -40,7 +22,7 @@ exports.getTest = async function (req, res) {
 /**
  * API No. 1
  * API Name : 유저 생성 (회원가입) API
- * [POST] /app/users
+ * [POST] /user/signup
  * username, email, password 값이 다 채워졌는지, 이메일 중복확인 및 유효성 검사, 비밀번호 8자리 이상, 비밀번호 확인 일치 검사)
  * password 체크도 백에서 구햔?
  */
@@ -97,7 +79,7 @@ exports.postUsers = async function (req, res) {
 /**
  * API No. 2
  * API Name : 유저 조회 API (+ 이메일로 검색 조회)
- * [GET] /app/users
+ * [GET] user/findusers
  */
 exports.getUsers = async function (req, res) {
 
@@ -122,19 +104,19 @@ exports.getUsers = async function (req, res) {
 /**
  * API No. 3
  * API Name : 특정 유저 조회 API
- * [GET] /app/users/{useremail}
+ * [GET] user/findusers/{userId}
  */
-exports.getUserByEmail = async function (req, res) {
+exports.getUserById = async function (req, res) {
 
     /**
      * Path Variable: userEmail
      */
-    const userEmail = req.params.userEmail;
+    const userId= req.params.userId;
 
-    if (!userEmail) return res.send(errResponse(baseResponse.USER_USERID_EMPTY));
+    if (!userId) return res.send(errResponse(baseResponse.USER_USERID_EMPTY));
 
-    const userByUserEmail= await userService.retrieveUser(userEmail);
-    return res.send(response(baseResponse.SUCCESS, userByUserEmail));
+    const userByUserId= await userService.retrieveUser(userId);
+    return res.send(response(baseResponse.SUCCESS, userByUserId));
 };
 
 
@@ -142,7 +124,7 @@ exports.getUserByEmail = async function (req, res) {
 /**
  * API No. 4
  * API Name : 로그인 API
- * [POST] /app/login
+ * [POST] /user/login
  * body : email, passsword
  */
 exports.login = async function (req, res) {

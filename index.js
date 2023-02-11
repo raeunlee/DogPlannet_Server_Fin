@@ -7,11 +7,12 @@ const port = 3000
 
 //application Controllers for Routes
 const doginfoRouter = require('./routes/doginfo');
+const userRouter = require('./routes/user');
 //application routes
 
 app.use(express.json());
 app.use('/doginfo', doginfoRouter);
-app.use('/user', userRouter)
+app.use('/user', userRouter);
 
 
 app.get('/', (req, res) => res.send('Hello World!'))

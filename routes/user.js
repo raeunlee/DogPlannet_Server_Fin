@@ -15,7 +15,7 @@ const userController = require('../controllers/user');
 
  // 3. 특정 유저 조회 API
  
- router.get('/findusers/:userId', userController.getUserByEmail);
+ router.get('/findusers/:userId', userController.getUserById);
 
  // 4. 로그인 하기 API (JWT 생성)
  router.post('/login', userController.login);
@@ -31,3 +31,5 @@ const userController = require('../controllers/user');
 // app.get('/app/auto-login', jwtMiddleware, user.check);
 
 // 로그아웃, 탈퇴하기 API 필요 
+
+module.exports = router;

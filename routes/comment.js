@@ -8,6 +8,7 @@ const comment = require('../controllers/comment');
 
 router.get('/test', comment.getTest)
 // 댓글 저장
+/*
 router.post('/post',comment.postComment);
 // 댓글 전체 조회
 router.get('/:id',comment.findComment);
@@ -15,6 +16,6 @@ router.get('/:id',comment.findComment);
 // router.patch('/:id',comment.updateComment);
 
 router.delete('/:id',comment.deleteComment);
-
+*/
 module.exports = router;
 

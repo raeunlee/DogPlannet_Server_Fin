@@ -1,4 +1,3 @@
-const { DataTypes } = require("sequelize");
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {

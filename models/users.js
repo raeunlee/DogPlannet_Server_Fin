@@ -1,4 +1,39 @@
 //시퀄라이즈는 알아서 id를 기본 키로 연결하므로, id 컬럼은 따로 적어줄 필요는 없다.
+'use strict';
+
+module.exports = (sequelize, DataTypes) => {
+    
+    const User = sequelize.define('post', {
+      name: {
+        type: DataTypes.STRING(20),
+        allowNull: false,
+        unique: true,
+    },
+    user_email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate:{
+        isEmail: true,
+      }
+    },
+    user_password: {
+        type:DataTypes.STRING,
+        allowNull:false,
+    },
+    user_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    myprofile: {
+      type: DataTypes.BLOB('long'),
+      allowNull: false,
+    },
+    });
+
+    return User;
+  };
+/*
 const Sequelize = require('sequelize');
 
 class User extends Sequelize.Model {

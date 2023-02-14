@@ -8,10 +8,6 @@ const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 const { Sequelize, DataTypes } = require('sequelize');
-const dogrecords = require("./dogrecords.js");
-const doginfos = require("./doginfos.js");
-const models = require("../models/index.js");
-const users = require('./users');
 const mysql = require('mysql');
 
 let sequelize;
@@ -58,7 +54,7 @@ db.users = require('./users')(sequelize, Sequelize);
 db.doginfos = require('./doginfos')(sequelize, Sequelize);
 db.dogrecords = require('./dogrecords')(sequelize, Sequelize);
 db.posts = require('./posts')(sequelize, Sequelize);
-db.replies = require('./replies')(sequelize, Sequelize);
+db.replies = require('./comment')(sequelize, Sequelize);
 
 //associations
 db.users.hasMany(db.doginfos, {as: "doginfos"});

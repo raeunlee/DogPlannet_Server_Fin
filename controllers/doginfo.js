@@ -16,7 +16,6 @@ exports.savedoginfo = async (req, res) => {
       dog_sex: req.body.dog_sex,
       dog_birthyear: req.body.dog_birthyear,
     });
-  
     try {
         savedoginfo = await savedoginfo.save();
       res.send({ message: 'Data saved successfully', savedoginfo });

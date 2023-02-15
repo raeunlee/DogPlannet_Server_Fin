@@ -1,6 +1,7 @@
 
 const jwtMiddleware = require('../config/JwtMiddelWare');
 const userService = require("../services/user");
+const userModel = require("../models/users")
 const baseResponse = require("../config/baseResponseStatus");
 const {logger} = require("../config/winston");
 const {response} = require("../config/response");
@@ -90,11 +91,11 @@ exports.getUsers = async function (req, res) {
 
     if (!email) {
         // 유저 전체 조회
-        const userListResult = await userService.retrieveUserList();
+        const userListResult = await userModel.retrieveUserList();
         return res.send(response(baseResponse.SUCCESS, userListResult));
     } else {
         // 유저 검색 조회
-        const userListByEmail = await userService.retrieveUserList(email);
+        const userListByEmail = await userModel.retrieveUserList(email);
         return res.send(response(baseResponse.SUCCESS, userListByEmail));
     }
 };
@@ -115,7 +116,7 @@ exports.getUserById = async function (req, res) {
 
     if (!userId) return res.send(errResponse(baseResponse.USER_USERID_EMPTY));
 
-    const getUserById= await userService.retrieveUser(userId);
+    const getUserById= await userModel.retrieveUser(userId);
     return res.send(response(baseResponse.SUCCESS, getUserById));
 };
 
@@ -133,7 +134,7 @@ exports.login = async function (req, res) {
 
     // TODO: email, password 형식적 Validation
 
-    const signInResponse = await userService.postSignIn(email, password);
+    const signInResponse = await userS.postSignIn(email, password);
 
     return res.send(signInResponse);
 };

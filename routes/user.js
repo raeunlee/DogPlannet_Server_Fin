@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const jwtMiddleware = require('../config/JwtMiddelWare');
 const userController = require('../controllers/user');
-
+var bodyParser = require('body-parser');
 
  // 0. 연결 테스트 API
  router.get('/test', userController.getTest)

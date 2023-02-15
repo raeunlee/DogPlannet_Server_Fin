@@ -1,182 +1,157 @@
-//시퀄라이즈는 알아서 id를 기본 키로 연결하므로, id 컬럼은 따로 적어줄 필요는 없다.
-'use strict';
 
-module.exports = (sequelize, DataTypes) => {
-    
-    const User = sequelize.define('post', {
-      
-      name: {
-        type: DataTypes.STRING(20),
-        allowNull: false,
-        unique: true,
-    },
-      user_email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate:{
-        isEmail: true,
-      }
-    },
-    user_password: {
-        type:DataTypes.STRING,
-        allowNull:false,
-    },
-    user_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    myprofile: {
-      type: DataTypes.BLOB('long'),
-      allowNull: false,
-    },
-    });
-
-    return User;
-  };
-/*
-const Sequelize = require('sequelize');
-
-class User extends Sequelize.Model {
-    static init(sequelize) {
-        return super.init({
-            name: {
-                type: Sequelize.STRING(20),
-                allowNull: false,
-                unique: true,
-            },
-            user_email: {
-              type: Sequelize.STRING,
-              allowNull: false,
-              unique: true,
-              validate:{
-                isEmail: true,
-              }
-            },
-            user_password: {
-                type:Sequelize.STRING,
-                allowNull:false,
-            },
-            user_name: {
-                type: Sequelize.STRING,
-                allowNull: false,
-            },
-            myprofile: {
-              type: Sequelize.BLOB('long'),
-              allowNull: false,
-            },
-            created_at: {
-                type: Sequelize.DATE,
-                allowNull: false,
-                defaultValue: Sequelize.NOW,
-            },
-        }, {
-            sequelize,
-            timestamps: false,
-            underscored: false,
-            modelName: 'User',
-            tableName: 'users',
-            paranoid: false,
-            charset: 'utf8',
-            collate: 'utf8_general_ci'
-        });
-    }
-    static associate(db) {}
-};
-
-module.exports = User;
-
-/** 
+const { pool } = require("../config/database");
+ 
 // 모든 유저 조회
 async function selectUser(connection) {
   const selectUserListQuery = `
-                SELECT email, nickname 
-                FROM UserInfo;
-                `;
+                  SELECT user_email, user_name 
+                  FROM Users;
+                  `;
   const [userRows] = await connection.query(selectUserListQuery);
   return userRows;
-}
-
-// 이메일로 회원 조회
-async function selectUserEmail(connection, email) {
+  }
+  
+  // 이메일로 회원 조회
+  async function selectUserEmail(connection, email) {
   const selectUserEmailQuery = `
-                SELECT email, nickname 
-                FROM UserInfo 
-                WHERE email = ?;
-                `;
+                  SELECT user_email, user_name
+                  FROM Users 
+                  WHERE email = ?;
+                  `;
   const [emailRows] = await connection.query(selectUserEmailQuery, email);
   return emailRows;
-}
-
-// userId 회원 조회
-async function selectUserId(connection, userId) {
+  }
+  
+  // userId 회원 조회
+  async function selectUserId(connection, userId) {
   const selectUserIdQuery = `
-                 SELECT id, email, nickname 
-                 FROM UserInfo 
-                 WHERE id = ?;
-                 `;
+                  SELECT user_id, user_email, user_name
+                  FROM Users
+                  WHERE id = ?;
+                  `;
   const [userRow] = await connection.query(selectUserIdQuery, userId);
   return userRow;
-}
-
-// 유저 생성
-async function insertUserInfo(connection, insertUserInfoParams) {
+  }
+  
+  // 유저 생성
+  async function insertUserInfo(connection, insertUserInfoParams) {
   const insertUserInfoQuery = `
-        INSERT INTO UserInfo(email, password, nickname)
-        VALUES (?, ?, ?);
-    `;
+          INSERT INTO Users(user_email, user_password, user_name)
+          VALUES (?, ?, ?);
+      `;
   const insertUserInfoRow = await connection.query(
-    insertUserInfoQuery,
-    insertUserInfoParams
+      insertUserInfoQuery,
+      insertUserInfoParams
   );
-
+  
   return insertUserInfoRow;
-}
-
-// 패스워드 체크
-async function selectUserPassword(connection, selectUserPasswordParams) {
+  }
+  
+  // 패스워드 체크
+  async function selectUserPassword(connection, selectUserPasswordParams) {
   const selectUserPasswordQuery = `
-        SELECT email, nickname, password
-        FROM UserInfo 
-        WHERE email = ? AND password = ?;`;
+          SELECT user_email, user_name, user_password
+          FROM Users
+          WHERE user_email = ? AND user_password = ?;`;
   const selectUserPasswordRow = await connection.query(
       selectUserPasswordQuery,
       selectUserPasswordParams
   );
-
+  
   return selectUserPasswordRow;
-}
-
-// 유저 계정 상태 체크 (jwt 생성 위해 id 값도 가져온다.)
-async function selectUserAccount(connection, email) {
+  }
+  
+  // 유저 계정 상태 체크 (jwt 생성 위해 id 값도 가져온다.)
+  async function selectUserAccount(connection, email) {
   const selectUserAccountQuery = `
-        SELECT status, id
-        FROM UserInfo 
-        WHERE email = ?;`;
+          SELECT user_status, user_id
+          FROM Users
+          WHERE user_email = ?;`;
   const selectUserAccountRow = await connection.query(
       selectUserAccountQuery,
       email
   );
   return selectUserAccountRow[0];
-}
-
-async function updateUserInfo(connection, id, nickname) {
+  }
+  
+  async function updateUserInfo(connection, id, nickname) {
   const updateUserQuery = `
-  UPDATE UserInfo 
-  SET nickname = ?
-  WHERE id = ?;`;
+  UPDATE Users
+  SET user_name = ?
+  WHERE user_id = ?;`;
   const updateUserRow = await connection.query(updateUserQuery, [nickname, id]);
   return updateUserRow[0];
-}
+  }
+
+
+
+  //Read
+  async function retrieveUserList(email) {
+    if (!email) {
+      const connection = await pool.getConnection(async (conn) => conn);
+      const userListResult = await selectUser(connection);
+      connection.release();
+  
+      return userListResult;
+  
+    } else {
+      const connection = await pool.getConnection(async (conn) => conn);
+      const userListResult = await selectUserEmail(connection, email);
+      connection.release();
+  
+      return userListResult;
+    }
+  }
+  async function retrieveUser(email) {
+    const connection = await pool.getConnection(async (conn) => conn);
+    const userResult = await selectUserEmail(connection, email);
+  
+    connection.release();
+  
+    return userResult[0];
+  }
+
+  async function emailCheck(email) {
+    const connection = await pool.getConnection(async (conn) => conn);
+    const emailCheckResult = await selectUserEmail(connection, email);
+    connection.release();
+  
+    return emailCheckResult;
+  }
+  
+  async function passwordCheck(selectUserPasswordParams) {
+    const connection = await pool.getConnection(async (conn) => conn);
+    const passwordCheckResult = await selectUserPassword(
+        connection,
+        selectUserPasswordParams
+    );
+    connection.release();
+    return passwordCheckResult[0];
+  };
+  
+  async function accountCheck(email) {
+    const connection = await pool.getConnection(async (conn) => conn);
+    const userAccountResult = await selectUserAccount(connection, email);
+    connection.release();
+  
+    return userAccountResult;
+  };
+  
+  
+  
 
 
 module.exports = {
-  selectUser,
-  selectUserEmail,
-  selectUserId,
-  insertUserInfo,
-  selectUserPassword,
-  selectUserAccount,
-  updateUserInfo,
-};
-*/
+    selectUser,
+    selectUserEmail,
+    selectUserId,
+    insertUserInfo,
+    selectUserPassword,
+    selectUserAccount,
+    updateUserInfo,
+    retrieveUserList,
+    retrieveUser,
+    emailCheck,
+    passwordCheck,
+    accountCheck
+}

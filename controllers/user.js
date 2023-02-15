@@ -134,7 +134,7 @@ exports.login = async function (req, res) {
 
     // TODO: email, password 형식적 Validation
 
-    const signInResponse = await userService.postSignIn(email, password);
+    const signInResponse = await userS.postSignIn(email, password);
 
     return res.send(signInResponse);
 };

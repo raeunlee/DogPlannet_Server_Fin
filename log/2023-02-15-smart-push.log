@@ -28,3 +28,12 @@
 {"level":"error","message":"App - createUser Service error\n: userModel is not defined","timestamp":"2023-02-15 21:13:22"}
 {"level":"error","message":"App - createUser Service error\n: Table 'dogplannet.UserInfo' doesn't exist","timestamp":"2023-02-15 21:27:44"}
 {"level":"error","message":"App - createUser Service error\n: Table 'dogplannet.UserInfo' doesn't exist","timestamp":"2023-02-15 21:28:29"}
+{"level":"error","message":"App - createUser Service error\n: Table 'dogplannet.UserInfo' doesn't exist","timestamp":"2023-02-15 21:32:57"}
+{"level":"error","message":"App - createUser Service error\n: Table 'dogplannet.UserInfo' doesn't exist","timestamp":"2023-02-15 21:33:03"}
+{"level":"error","message":"App - createUser Service error\n: Unknown column 'email' in 'where clause'","timestamp":"2023-02-15 21:39:26"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-15 21:41:42"}
+{"level":"error","message":"App - createUser Service error\n: Unknown column 'email' in 'where clause'","timestamp":"2023-02-15 21:42:21"}
+{"level":"error","message":"App - createUser Service error\n: Unknown column 'email' in 'where clause'","timestamp":"2023-02-15 21:43:45"}
+{"level":"error","message":"App - createUser Service error\n: Unknown column 'email' in 'where clause'","timestamp":"2023-02-15 21:43:59"}
+{"level":"error","message":"App - createUser Service error\n: Unknown column 'email' in 'where clause'","timestamp":"2023-02-15 21:45:48"}
+{"level":"error","message":"App - createUser Service error\n: Unknown column 'email' in 'where clause'","timestamp":"2023-02-15 21:45:48"}

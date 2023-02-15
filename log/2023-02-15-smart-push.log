@@ -1,0 +1,30 @@
+{"level":"error","message":"App - createUser Service error\n: userModel.emailCheck is not a function","timestamp":"2023-02-15 19:58:24"}
+{"level":"error","message":"App - createUser Service error\n: userModel.emailCheck is not a function","timestamp":"2023-02-15 20:06:26"}
+{"level":"error","message":"App - createUser Service error\n: userModel.emailCheck is not a function","timestamp":"2023-02-15 20:08:37"}
+{"level":"error","message":"App - createUser Service error\n: userModel.emailCheck is not a function","timestamp":"2023-02-15 20:12:39"}
+{"level":"error","message":"App - createUser Service error\n: userModel.emailCheck is not a function","timestamp":"2023-02-15 20:13:04"}
+{"level":"error","message":"App - createUser Service error\n: pool is not defined","timestamp":"2023-02-15 20:14:27"}
+{"level":"error","message":"App - createUser Service error\n: pool is not defined","timestamp":"2023-02-15 20:21:15"}
+{"level":"error","message":"App - createUser Service error\n: userModel.emailCheck is not a function","timestamp":"2023-02-15 20:25:52"}
+{"level":"error","message":"App - createUser Service error\n: userModel.emailCheck is not a function","timestamp":"2023-02-15 20:26:36"}
+{"level":"error","message":"App - createUser Service error\n: userModel.emailCheck is not a function","timestamp":"2023-02-15 20:27:27"}
+{"level":"error","message":"App - createUser Service error\n: emailCheck is not defined","timestamp":"2023-02-15 20:28:28"}
+{"level":"error","message":"App - createUser Service error\n: emailCheck is not defined","timestamp":"2023-02-15 20:30:09"}
+{"level":"error","message":"App - createUser Service error\n: emailCheck is not defined","timestamp":"2023-02-15 20:32:50"}
+{"level":"error","message":"App - createUser Service error\n: pool is not defined","timestamp":"2023-02-15 20:33:03"}
+{"level":"error","message":"App - createUser Service error\n: pool is not defined","timestamp":"2023-02-15 20:33:22"}
+{"level":"error","message":"App - createUser Service error\n: pool is not defined","timestamp":"2023-02-15 20:34:23"}
+{"level":"error","message":"App - createUser Service error\n: userReadModel is not defined","timestamp":"2023-02-15 20:36:25"}
+{"level":"error","message":"App - createUser Service error\n: userReadModel is not defined","timestamp":"2023-02-15 20:36:57"}
+{"level":"error","message":"App - createUser Service error\n: userModel.emailCheck is not a function","timestamp":"2023-02-15 20:37:32"}
+{"level":"error","message":"App - createUser Service error\n: pool is not defined","timestamp":"2023-02-15 20:40:25"}
+{"level":"error","message":"App - createUser Service error\n: userModel is not defined","timestamp":"2023-02-15 20:40:48"}
+{"level":"error","message":"App - createUser Service error\n: userModel is not defined","timestamp":"2023-02-15 20:41:58"}
+{"level":"error","message":"App - createUser Service error\n: userModel is not defined","timestamp":"2023-02-15 20:41:59"}
+{"level":"error","message":"App - createUser Service error\n: userModel is not defined","timestamp":"2023-02-15 20:44:42"}
+{"level":"error","message":"App - createUser Service error\n: userModel is not defined","timestamp":"2023-02-15 20:47:17"}
+{"level":"error","message":"App - createUser Service error\n: userModel is not defined","timestamp":"2023-02-15 20:47:30"}
+{"level":"error","message":"App - createUser Service error\n: userModel is not defined","timestamp":"2023-02-15 20:48:09"}
+{"level":"error","message":"App - createUser Service error\n: userModel is not defined","timestamp":"2023-02-15 21:13:22"}
+{"level":"error","message":"App - createUser Service error\n: Table 'dogplannet.UserInfo' doesn't exist","timestamp":"2023-02-15 21:27:44"}
+{"level":"error","message":"App - createUser Service error\n: Table 'dogplannet.UserInfo' doesn't exist","timestamp":"2023-02-15 21:28:29"}

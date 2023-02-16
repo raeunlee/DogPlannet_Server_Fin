@@ -37,3 +37,9 @@
 {"level":"error","message":"App - createUser Service error\n: Unknown column 'email' in 'where clause'","timestamp":"2023-02-15 21:43:59"}
 {"level":"error","message":"App - createUser Service error\n: Unknown column 'email' in 'where clause'","timestamp":"2023-02-15 21:45:48"}
 {"level":"error","message":"App - createUser Service error\n: Unknown column 'email' in 'where clause'","timestamp":"2023-02-15 21:45:48"}
+{"level":"error","message":"App - createUser Service error\n: post_id is not defined","timestamp":"2023-02-15 22:49:03"}
+{"level":"error","message":"App - createUser Service error\n: Cannot read properties of undefined (reading 'insertId')","timestamp":"2023-02-15 22:49:41"}
+{"level":"error","message":"App - createUser Service error\n: Duplicate entry 'aa' for key 'post_id'","timestamp":"2023-02-15 22:50:13"}
+{"level":"error","message":"App - createUser Service error\n: response is not defined","timestamp":"2023-02-15 22:50:44"}
+{"level":"error","message":"App - createUser Service error\n: Duplicate entry '4576' for key 'post_id'","timestamp":"2023-02-15 22:51:40"}
+{"level":"error","message":"App - createUser Service error\n: Duplicate entry '4576' for key 'post_id'","timestamp":"2023-02-15 22:52:23"}

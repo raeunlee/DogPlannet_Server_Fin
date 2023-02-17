@@ -13,9 +13,12 @@ exports.postComment = async(req,res) => {
      * router.post('/',comment.postComment);
      */
     // console.log(req.body);
-    const {post_id,writer,content} = req.body;
+    const {post_id,dog_name,content,user_id} = req.body;
+    console.log(req.body);
+    console.log(content)
+    console.log(dog_name)
 
-    if (!writer)
+    if (!dog_name)
         return res.send(response(baseResponseStatus.USER_NICKNAME_EMPTY));
     
     // response 변경하기
@@ -24,8 +27,9 @@ exports.postComment = async(req,res) => {
 
     const saveCommentResponse = await commentService.createComment(
             post_id,
-            writer,
-            content
+            dog_name,
+            content,
+            user_id
         );
     
     return res.send(saveCommentResponse);

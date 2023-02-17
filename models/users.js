@@ -30,6 +30,7 @@ async function selectUser(connection) {
                   WHERE id = ?;
                   `;
   const [userRow] = await connection.query(selectUserIdQuery, userId);
+  console.log(userRow);
   return userRow;
   }
   

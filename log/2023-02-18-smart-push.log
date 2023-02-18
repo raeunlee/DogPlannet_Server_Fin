@@ -3,3 +3,11 @@
 {"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 12:34:06"}
 {"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 13:00:01"}
 {"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 13:57:56"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 14:05:36"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_general_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 14:07:03"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 14:09:37"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 14:12:46"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 14:14:45"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 14:15:50"}
+{"level":"error","message":"App - createUser Service error\n: Cannot access 'email' before initialization","timestamp":"2023-02-18 14:25:07"}
+{"level":"error","message":"App - createUser Service error\n: Cannot access 'name' before initialization","timestamp":"2023-02-18 14:25:22"}

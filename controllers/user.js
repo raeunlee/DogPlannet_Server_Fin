@@ -106,7 +106,7 @@ exports.getUsers = async function (req, res) {
 exports.getUserById = async function (req, res) {
 
     /**
-     * Path Variable: userEmail
+     * Path Variable: userId
      */
     const userId= req.params.userId;
 
@@ -129,9 +129,28 @@ exports.login = async function (req, res) {
     const {email, password} = req.body;
 
     // TODO: email, password 형식적 Validation
+        // 빈 값 체크
+    if (!email)
+        return res.send(response(baseResponse.SIGNUP_EMAIL_EMPTY));
 
-    const signInResponse = await userS.postSignIn(email, password);
+    // 길이 체크
+    if (email.length > 30)
+        return res.send(response(baseResponse.SIGNUP_EMAIL_LENGTH));
 
+    // 형식 체크 (정규표현식 이용)
+    if (!regexEmail.test(email))
+        return res.send(response(baseResponse.SIGNUP_EMAIL_ERROR_TYPE));
+    
+    // password
+    // 빈 값 체크
+    if (!password)
+        return res.send(response(baseResponse.SIGNUP_PASSWORD_EMPTY));
+    
+    // 길이 체크
+    if (password.length < 8 || password.length>20)
+        return res.send(response(baseResponse.SIGNUP_PASSWORD_LENGTH));
+    
+    const signInResponse = await userService.postSignIn(email, password);
     return res.send(signInResponse);
 };
 

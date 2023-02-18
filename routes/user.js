@@ -13,8 +13,7 @@ var bodyParser = require('body-parser');
  // 2. 유저 조회 API (+ 검색)
  router.get('/findusers',userController.getUsers); 
 
- // 3. 특정 유저 조회 API
- 
+ // 3. 특정 유저 조회 API 
  router.get('/findusers/:userId', userController.getUserById);
 
  // 4. 로그인 하기 API (JWT 생성)

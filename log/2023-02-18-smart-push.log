@@ -1,0 +1,5 @@
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 12:31:38"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 12:32:51"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 12:34:06"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 13:00:01"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 13:57:56"}

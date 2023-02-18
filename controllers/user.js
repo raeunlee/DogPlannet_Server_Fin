@@ -24,7 +24,7 @@ exports.getTest = async function (req, res) {
  * API No. 1
  * API Name : 유저 생성 (회원가입) API
  * [POST] /user/signup
- * username, email, password 값이 다 채워졌는지, 이메일 중복확인 및 유효성 검사, 비밀번호 8자리 이상, 비밀번호 확인 일치 검사)
+ * name, email, password 값이 다 채워졌는지, 이메일 중복확인 및 유효성 검사, 비밀번호 8자리 이상, 비밀번호 확인 일치 검사)
  * password 체크도 백에서 구햔?
  */
 exports.postUsers = async function (req, res) { 
@@ -32,17 +32,18 @@ exports.postUsers = async function (req, res) {
     /**
      * Body: username, email, password
      */
-    const {username, email, password} = req.body;
+    const {name, email, password} = req.body;
+
 
     //예외처리 정리
 
     // username
     // 빈 값 체크
-    if (!username)
+    if (!name)
         return res.send(response(baseResponse.SIGNUP_NAME_EMPTY));
     
     // 길이 체크
-    if (username.length<2)
+    if (name.length<2)
         return res.send(response(baseResponse.SIGNUP_NAME_LENGTH));
 
     // email
@@ -69,7 +70,7 @@ exports.postUsers = async function (req, res) {
     
 
     const signUpResponse = await userService.createUser(
-        username,
+        name,
         email,
         password
     );

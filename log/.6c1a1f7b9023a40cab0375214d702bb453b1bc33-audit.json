@@ -40,21 +40,7 @@
             "name": "log/2023-02-15-smart-push.log",
             "hash": "3a99fb5a22a263f530cac03cf49cfe9c0d00fbb25cd4792197bd9708296356b9"
         },
-        {
-            "date": 1676547605343,
-            "name": "log/2023-02-16-smart-push.log",
-            "hash": "bd9ad0d34431fdd00a5f9363ef4803850607f2b8e8e3a0f697e1fb264e6b7d2f"
-        },
-        {
-            "date": 1676613879374,
-            "name": "log/2023-02-17-smart-push.log",
-            "hash": "58f88a16a65deb0c3ef4a7fa685fc4310099aa1a1837ac3e9c188e39aa5eceea"
-        },
-        {
-            "date": 1676691086976,
-            "name": "log/2023-02-18-smart-push.log",
-            "hash": "cfa4ac10f9369a8aa30004428223f9d3e3717c910e138f9f97660d007446bb7c"
-        }
+   
     ],
     "hashType": "sha256"
 }

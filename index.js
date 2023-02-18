@@ -12,8 +12,8 @@ const userRouter = require('./routes/user');
 const commentRouter = require('./routes/comment');
 
 //application routes
-app.use(express.urlencoded({extended:true})) // body값 비어져서 오는 것 해결
 app.use(express.json())
+app.use(express.urlencoded({extended:true})) // body값 비어져서 오는 것 해결
 // app.use('/doginfo', doginfoRouter);
 app.use('/user', userRouter);
 app.use('/comment',commentRouter);

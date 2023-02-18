@@ -1,0 +1,4 @@
+{"level":"error","message":"App - createUser Service error\n: postCommentParam is not defined","timestamp":"2023-02-16 21:52:12"}
+{"level":"error","message":"App - createUser Service error\n: Duplicate entry '1' for key 'post_id'","timestamp":"2023-02-16 21:52:48"}
+{"level":"error","message":"App - createUser Service error\n: Duplicate entry '4566' for key 'post_id'","timestamp":"2023-02-16 21:54:04"}
+{"level":"error","message":"App - createUser Service error\n: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 1","timestamp":"2023-02-16 22:02:28"}

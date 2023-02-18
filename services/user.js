@@ -9,11 +9,11 @@ const {errResponse} = require("../config/response");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const {connect} = require("http2");
-const { name } = require("ejs");
+//const {name}= require("ejs");
 
 // Service: Create, Update, Delete 비즈니스 로직
 // 유저 생성
-exports.createUser = async function (email,name,password) {
+exports.createUser = async function (email,password,name) {
     try {
         // 이메일 중복 확인
         const emailRows = await userModel.emailCheck(email);

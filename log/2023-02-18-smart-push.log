@@ -11,3 +11,31 @@
 {"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-18 14:15:50"}
 {"level":"error","message":"App - createUser Service error\n: Cannot access 'email' before initialization","timestamp":"2023-02-18 14:25:07"}
 {"level":"error","message":"App - createUser Service error\n: Cannot access 'name' before initialization","timestamp":"2023-02-18 14:25:22"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:07:00"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:14:57"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:15:58"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:17:10"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:18:41"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:19:31"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:19:47"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:20:04"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:23:05"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:24:28"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:25:20"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:25:45"}
+{"level":"error","message":"App - postSignIn Service error\n: userModel.emailCheck is not a function \n{}","timestamp":"2023-02-18 15:31:26"}
+{"level":"error","message":"App - postSignIn Service error\n: userModel.emailCheck is not a function \n{}","timestamp":"2023-02-18 15:33:32"}
+{"level":"error","message":"App - postSignIn Service error\n: selectUserEmail is not defined \n{}","timestamp":"2023-02-18 15:35:11"}
+{"level":"error","message":"App - postSignIn Service error\n: selectUserEmail is not defined \n{}","timestamp":"2023-02-18 15:35:52"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:39:17"}
+{"level":"error","message":"App - postSignIn Service error\n: print is not defined \n{}","timestamp":"2023-02-18 15:46:22"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:46:42"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:54:18"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:57:29"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:59:02"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:59:33"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 15:59:47"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-18 16:00:08"}
+{"level":"error","message":"App - postSignIn Service error\n: connection.query is not a function \n{}","timestamp":"2023-02-18 16:12:58"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading '2') \n{}","timestamp":"2023-02-18 16:15:54"}
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading '2') \n{}","timestamp":"2023-02-18 16:16:17"}

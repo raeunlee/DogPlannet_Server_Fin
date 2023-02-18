@@ -9,6 +9,7 @@ const {errResponse} = require("../config/response");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const {connect} = require("http2");
+const { hasSubscribers } = require("diagnostics_channel");
 //const {name}= require("ejs");
 
 // Service: Create, Update, Delete 비즈니스 로직
@@ -21,7 +22,6 @@ exports.createUser = async function (email,password,name) {
         if (emailRows.length > 0)
             return errResponse(baseResponse.SIGNUP_REDUNDANT_EMAIL); 
         // crypto 모듈로 비밀번호 암호화
-
         const hashedPassword = await crypto
             .createHash("sha512")
             .update(password)
@@ -50,24 +50,37 @@ exports.postSignIn = async function (email, password) {
         // 이메일 여부 확인
         const emailRows = await userModel.emailCheck(email);
         if (emailRows.length < 1) return errResponse(baseResponse.SIGNIN_EMAIL_WRONG);
+        
+        //이메일 조회가 되는지 확인 
+        console.log("이메일 확인", emailRows)
 
         const selectEmail = emailRows[0].email
 
-        // 비밀번호 확인
+        // 비밀번호 암호화 확인
         const hashedPassword = await crypto
             .createHash("sha512")
             .update(password)
             .digest("hex");
 
+        console.log("입력비번", password)
+        console.log(hashedPassword)   
+
+        //check용 여기가 지금 안됨!!
         const selectUserPasswordParams = [selectEmail, hashedPassword];
         const passwordRows = await userModel.passwordCheck(selectUserPasswordParams);
+        console.log(passwordRows[1][2])
 
-        if (passwordRows[0].password !== hashedPassword) {
+        /**if (passwordRows[1][2].password !== hashedPassword) {
+            return errResponse(baseResponse.SIGNIN_PASSWORD_WRONG);
+        }*/
+        if (passwordRows.length < 1 || passwordRows[0].password !== hashedPassword) {
             return errResponse(baseResponse.SIGNIN_PASSWORD_WRONG);
         }
-
+         
         // 계정 상태 확인
         const userInfoRows = await userModel.accountCheck(email);
+    
+        console.log("계정상태?", userInfoRows)
 
         if (userInfoRows[0].status === "INACTIVE") {
             return errResponse(baseResponse.SIGNIN_INACTIVE_ACCOUNT);
@@ -80,7 +93,7 @@ exports.postSignIn = async function (email, password) {
         //토큰 생성 Service
         let token = await jwt.sign(
             {
-                userEmail: userInfoRows[0].id, //이메일만 생성
+                userEmail: userInfoRows[0].id,
             }, // 토큰의 내용(payload)
             secret_config.jwtsecret, // 비밀키
             {
@@ -89,8 +102,8 @@ exports.postSignIn = async function (email, password) {
             } // 유효 기간 365일
         );
         
-        //userId & JWT토큰
-        return response(baseResponse.SUCCESS, {'userId': userInfoRows[0].id, 'jwt': token});
+        //Id & JWT토큰
+        return response(baseResponse.SUCCESS, {'Id': userInfoRows[0].id, 'jwt': token});
         
     } catch (err) {
         logger.error(`App - postSignIn Service error\n: ${err.message} \n${JSON.stringify(err)}`);

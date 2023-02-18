@@ -13,7 +13,15 @@ async function selectUser(connection) {
   }
   
   // 이메일로 회원 조회
-
+  async function selectUserEmail(connection, email) {
+    const selectUserEmailQuery = `
+                    SELECT email, name
+                    FROM Users 
+                    WHERE email = ?;
+                    `;
+    const [emailRows] = await connection.query(selectUserEmailQuery, email);
+    return emailRows;
+  }
   
   // userId 회원 조회
 async function selectUserId(connection, userId) {
@@ -107,22 +115,22 @@ async function retrieveUser(userId) {
     return userResult[0];
   }
 
-// async function emailCheck(email) {
-//     const connection = await pool.getConnection(async (conn) => conn);
-//     const emailCheckResult = await selectUserEmail(connection, email);
-//     connection.release();
+async function emailCheck(email) {
+     const connection = await pool.getConnection(async (conn) => conn);
+     const emailCheckResult = await selectUserEmail(connection, email);
+    connection.release();
   
-//     return emailCheckResult;
-//   }
+    return emailCheckResult;
+}
   
 async function passwordCheck(selectUserPasswordParams) {
     const connection = await pool.getConnection(async (conn) => conn);
     const passwordCheckResult = await selectUserPassword(
-        connection,
-        selectUserPasswordParams
+      connection,  
+      selectUserPasswordParams
     );
     connection.release();
-    return passwordCheckResult[0];
+    return passwordCheckResult;
   };
   
 async function accountCheck(email) {
@@ -139,7 +147,7 @@ async function accountCheck(email) {
 
 module.exports = {
     selectUser,
-    // selectUserEmail,
+    selectUserEmail,
     selectUserId,
     insertUserInfo,
     selectUserPassword,
@@ -147,7 +155,7 @@ module.exports = {
     updateUserInfo,
     retrieveUserList,
     retrieveUser,
-    // emailCheck,
+    emailCheck,
     passwordCheck,
     accountCheck
 }

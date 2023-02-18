@@ -79,7 +79,6 @@ exports.postUsers = async function (req, res) {
  * [GET] user/findusers
  */
 exports.getUsers = async function (req, res) {
-
     /**
      * Query String: email
      */
@@ -96,27 +95,22 @@ exports.getUsers = async function (req, res) {
     }
 };
 
-
-
 /**
  * API No. 3
  * API Name : 특정 유저 조회 API
  * [GET] user/findusers/{userId}
  */
 exports.getUserById = async function (req, res) {
-
     /**
      * Path Variable: userId
      */
     const userId= req.params.userId;
-
+    // db 에 존재하는 유저인지 체크하는 아이가 필요함
     if (!userId) return res.send(errResponse(baseResponse.USER_USERID_EMPTY));
 
     const getUserById= await userModel.retrieveUser(userId);
     return res.send(response(baseResponse.SUCCESS, getUserById));
 };
-
-
 
 /**
  * API No. 4

@@ -63,16 +63,20 @@ exports.postSignIn = async function (email, password) {
             .digest("hex");
 
         console.log("입력비번", password)
-        //console.log(hashedPassword)   
+        console.log(hashedPassword)   
 
         //check용 여기가 지금 안됨!!
         const selectUserPasswordParams = [selectEmail, hashedPassword];
         const passwordRows = await userModel.passwordCheck(selectUserPasswordParams);
-        console.log(passwordRows)
+        console.log(passwordRows[1][2])
 
-        if (passwordRows[0].password !== hashedPassword) {
+        /**if (passwordRows[1][2].password !== hashedPassword) {
             return errResponse(baseResponse.SIGNIN_PASSWORD_WRONG);
-        } 
+        }*/
+        if (passwordRows.length < 1 || passwordRows[0].password !== hashedPassword) {
+            return errResponse(baseResponse.SIGNIN_PASSWORD_WRONG);
+        }
+         
         // 계정 상태 확인
         const userInfoRows = await userModel.accountCheck(email);
     

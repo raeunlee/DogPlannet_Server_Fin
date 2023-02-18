@@ -29,23 +29,10 @@ exports.getTest = async function (req, res) {
  */
 exports.postUsers = async function (req, res) { 
 
-    /**
-     * Body: username, email, password
-     */
-    const {name, email, password} = req.body;
+    const {email, name, password} = req.body;
 
 
     //예외처리 정리
-
-    // username
-    // 빈 값 체크
-    if (!name)
-        return res.send(response(baseResponse.SIGNUP_NAME_EMPTY));
-    
-    // 길이 체크
-    if (name.length<2)
-        return res.send(response(baseResponse.SIGNUP_NAME_LENGTH));
-
     // email
     // 빈 값 체크
     if (!email)
@@ -58,6 +45,14 @@ exports.postUsers = async function (req, res) {
     // 형식 체크 (정규표현식 이용)
     if (!regexEmail.test(email))
         return res.send(response(baseResponse.SIGNUP_EMAIL_ERROR_TYPE));
+    // username
+    // 빈 값 체크
+    if (!name)
+        return res.send(response(baseResponse.SIGNUP_NAME_EMPTY));
+    
+    // 길이 체크
+    if (name.length<2)
+        return res.send(response(baseResponse.SIGNUP_NAME_LENGTH));
 
     // password
     // 빈 값 체크
@@ -68,10 +63,9 @@ exports.postUsers = async function (req, res) {
     if (password.length < 8 || password.length>20)
         return res.send(response(baseResponse.SIGNUP_PASSWORD_LENGTH));
     
-
     const signUpResponse = await userService.createUser(
-        name,
         email,
+        name,
         password
     );
 

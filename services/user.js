@@ -9,10 +9,11 @@ const {errResponse} = require("../config/response");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const {connect} = require("http2");
+const { name } = require("ejs");
 
 // Service: Create, Update, Delete 비즈니스 로직
 // 유저 생성
-exports.createUser = async function (email, password, name) {
+exports.createUser = async function (email,name,password) {
     try {
         // 이메일 중복 확인
         const emailRows = await userModel.emailCheck(email);
@@ -20,6 +21,7 @@ exports.createUser = async function (email, password, name) {
         if (emailRows.length > 0)
             return errResponse(baseResponse.SIGNUP_REDUNDANT_EMAIL); 
         // crypto 모듈로 비밀번호 암호화
+
         const hashedPassword = await crypto
             .createHash("sha512")
             .update(password)
@@ -98,11 +100,11 @@ exports.postSignIn = async function (email, password) {
 
 
 // 회원정보 수정
-exports.editUser = async function (id, nickname) {
+exports.editUser = async function (id, name) {
     try {
         console.log(id)
         const connection = await pool.getConnection(async (conn) => conn);
-        const editUserResult = await updateUserInfo(connection, id, nickname)
+        const editUserResult = await updateUserInfo(connection, id, name)
         connection.release();
 
         return response(baseResponse.SUCCESS);

@@ -8,7 +8,9 @@ const pool = mysql.createPool({
     user: 'root',
     port: '3306',
     password: 'Gusdn4722!',
-    database: 'dogplannet'
+    database: 'dogplannet',
+    //charset: 'utf8mb4',
+    //collation: 'utf8mb4_unicode_ci',
 });
 
 /*

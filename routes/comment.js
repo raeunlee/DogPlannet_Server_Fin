@@ -1,7 +1,5 @@
 var express = require('express')
 const router = express.Router();
-var bodyParser = require('body-parser')
-const doginfoController = require("../controllers/doginfo");
 const comment = require('../controllers/comment');
 
 

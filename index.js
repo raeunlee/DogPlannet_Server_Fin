@@ -10,6 +10,7 @@ const port = 3000
 // const doginfoRouter = require('./routes/doginfo');
 const userRouter = require('./routes/user');
 const commentRouter = require('./routes/comment');
+const boardRouter = require('./routes/board');
 
 //application routes
 app.use(express.json())
@@ -17,6 +18,7 @@ app.use(express.urlencoded({extended:true})) // body값 비어져서 오는 것 
 // app.use('/doginfo', doginfoRouter);
 app.use('/user', userRouter);
 app.use('/comment',commentRouter);
+app.use('/board',boardRouter);
 
 
 app.get('/', (req, res) => res.send('Hello World!'))

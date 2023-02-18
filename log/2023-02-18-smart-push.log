@@ -39,3 +39,19 @@
 {"level":"error","message":"App - postSignIn Service error\n: connection.query is not a function \n{}","timestamp":"2023-02-18 16:12:58"}
 {"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading '2') \n{}","timestamp":"2023-02-18 16:15:54"}
 {"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading '2') \n{}","timestamp":"2023-02-18 16:16:17"}
+{"level":"error","message":"App - postBoard Service error\n: logger is not defined","timestamp":"2023-02-18 22:14:25"}
+{"level":"error","message":"App - editBoard Service error\n: logger is not defined","timestamp":"2023-02-18 22:30:20"}
+{"level":"error","message":"App - editBoard Service error\n: logger is not defined","timestamp":"2023-02-18 22:30:51"}
+{"level":"error","message":"App - getBoardId Service error\n: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= ?' at line 1","timestamp":"2023-02-18 22:42:57"}
+{"level":"error","message":"App - getBoardId Service error\n: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= '1'' at line 1","timestamp":"2023-02-18 22:43:30"}
+{"level":"error","message":"App - postBoard Service error\n: logger is not defined","timestamp":"2023-02-18 22:48:16"}
+{"level":"error","message":"App - getBoardId Service error\n: title is not defined","timestamp":"2023-02-18 22:52:05"}
+{"level":"error","message":"App - getBoardId Service error\n: title is not defined","timestamp":"2023-02-18 22:52:35"}
+{"level":"error","message":"App - getBoardId Service error\n: title is not defined","timestamp":"2023-02-18 22:52:35"}
+{"level":"error","message":"App - getBoardId Service error\n: JSON.loads is not a function","timestamp":"2023-02-18 22:53:22"}
+{"level":"error","message":"App - getBoardId Service error\n: json is not defined","timestamp":"2023-02-18 22:53:36"}
+{"level":"error","message":"App - getBoardId Service error\n: title is not defined","timestamp":"2023-02-18 22:55:22"}
+{"level":"error","message":"App - getBoardId Service error\n: title is not defined","timestamp":"2023-02-18 22:59:59"}
+{"level":"error","message":"App - getBoardId Service error\n: title is not defined","timestamp":"2023-02-18 22:59:59"}
+{"level":"error","message":"App - getBoardId Service error\n: title is not defined","timestamp":"2023-02-18 23:00:55"}
+{"level":"error","message":"App - editBoard Service error\n: logger is not defined","timestamp":"2023-02-18 23:32:22"}

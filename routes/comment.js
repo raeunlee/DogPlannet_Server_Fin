@@ -1,12 +1,10 @@
 var express = require('express')
 const router = express.Router();
-var bodyParser = require('body-parser')
-const doginfoController = require("../controllers/doginfo");
 const comment = require('../controllers/comment');
 
 
 
-router.get('/test', comment.getTest)
+router.get('/test', comment.getTest);
 // 댓글 저장
 router.post('/post',comment.postComment);
 // 댓글 전체 조회

@@ -31,7 +31,7 @@ exports.postUsers = async function (req, res) {
 
     const {email, name, password} = req.body;
 
-
+    console.log(req.body);
     //예외처리 정리
     // email
     // 빈 값 체크

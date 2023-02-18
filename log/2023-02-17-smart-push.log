@@ -1,0 +1,6 @@
+{"level":"error","message":"App - createUser Service error\n: Duplicate entry '\\x00' for key 'PRIMARY'","timestamp":"2023-02-17 15:04:39"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-17 15:14:08"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-17 15:16:10"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-17 15:17:17"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-17 15:22:37"}
+{"level":"error","message":"App - createUser Service error\n: Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8mb4_unicode_ci,COERCIBLE) for operation '='","timestamp":"2023-02-17 15:24:02"}

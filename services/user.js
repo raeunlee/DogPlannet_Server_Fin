@@ -12,10 +12,11 @@ const {connect} = require("http2");
 
 // Service: Create, Update, Delete 비즈니스 로직
 // 유저 생성
-exports.createUser = async function (email, password, username) {
+exports.createUser = async function (email, password, name) {
     try {
         // 이메일 중복 확인
         const emailRows = await userModel.emailCheck(email);
+        console.log(userModel.emailCheck);
         if (emailRows.length > 0)
             return errResponse(baseResponse.SIGNUP_REDUNDANT_EMAIL); 
         // crypto 모듈로 비밀번호 암호화
@@ -24,7 +25,7 @@ exports.createUser = async function (email, password, username) {
             .update(password)
             .digest("hex");
 
-        const insertUserInfoParams = [email, hashedPassword, username];
+        const insertUserInfoParams = [email, hashedPassword, name];
 
         const connection = await pool.getConnection(async (conn) => conn);
 

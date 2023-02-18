@@ -9,12 +9,12 @@ var bodyParser = require('body-parser');
 
  // 1. 유저 생성 (회원가입) API
  router.post('/signup', userController.postUsers);
+ // email, password, name 순임
 
  // 2. 유저 조회 API (+ 검색)
  router.get('/findusers',userController.getUsers); 
 
  // 3. 특정 유저 조회 API
- 
  router.get('/findusers/:userId', userController.getUserById);
 
  // 4. 로그인 하기 API (JWT 생성)

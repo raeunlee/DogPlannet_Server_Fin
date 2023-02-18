@@ -15,18 +15,19 @@ exports.serviceDb = async function () {
     return commentDb;
   }
 
-exports.createComment = async function (post_id,writer,comment) {
+exports.createComment = async function (post_id,dog_name,content,user_id) {
+    console.log("들어옴")
     try{
-        // writer 있는 사람인지 확인 필요
-        const postCommentParam = [post_id,writer, comment];
+        // dog_name 있는 사람인지 확인 필요
+        const postCommentParam = [post_id,dog_name, content,user_id];
         const connection = await pool.getConnection(async (conn) => conn);
         //아래에서 부터 수정하기 
         const postCommentResult = await Dao.createDb(connection,postCommentParam);
         connection.release();
-        return response(postCommentResult);
-
-
+        return postCommentResult; // 추후 수정 필요함
+        // return response(baseResponse.SUCCESS);
     } catch (err) {
+        console.log("Why")
         logger.error(`App - createUser Service error\n: ${err.message}`);
         return errResponse(baseResponse.DB_ERROR);
     }
@@ -37,13 +38,10 @@ exports.createComment = async function (post_id,writer,comment) {
 exports.findComment = async function (user_id) {
     try{
         const connection = await pool.getConnection(async (conn) => conn);
-        //아래에서 부터 수정하기 
-        const postCommentResult = await commentModel.insertUserInfo(connection, postCommentParam);
-        console.log(`comment : ${postCommentResult[0].insertId}`)
+        const postCommentResult = await commentModel.findUserComment(connection, user_id);
         connection.release();
-        return response(baseResponse.SUCCESS);
-
-
+        return postCommentResult;
+        // return response(baseResponse.SUCCESS);
     } catch (err) {
         logger.error(`App - createUser Service error\n: ${err.message}`);
         return errResponse(baseResponse.DB_ERROR);
@@ -53,8 +51,8 @@ exports.findComment = async function (user_id) {
 
 // exports.fetchComment = async function (user_id,comment) {
 //     try{
-//         // writer 있는 사람인지 확인 필요
-//         const postCommentParam = [writer, comment];
+//         // dog_name 있는 사람인지 확인 필요
+//         const postCommentParam = [dog_name, comment];
 //         const connection = await pool.getConnection(async (conn) => conn);
 //         //아래에서 부터 수정하기 
 //         const postCommentResult = await commentModel.insertUserInfo(connection, postCommentParam);
@@ -72,8 +70,8 @@ exports.findComment = async function (user_id) {
 
 // exports.deleteComment = async function (user_id) {
 //     try{
-//         // writer 있는 사람인지 확인 필요
-//         const postCommentParam = [writer, comment];
+//         // dog_name 있는 사람인지 확인 필요
+//         const postCommentParam = [dog_name, comment];
 //         const connection = await pool.getConnection(async (conn) => conn);
 //         //아래에서 부터 수정하기 
 //         const postCommentResult = await commentModel.insertUserInfo(connection, postCommentParam);

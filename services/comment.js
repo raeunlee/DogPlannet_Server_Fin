@@ -27,7 +27,7 @@ exports.createComment = async function (post_id,dog_name,content,user_id) {
         return postCommentResult; // 추후 수정 필요함
         // return response(baseResponse.SUCCESS);
     } catch (err) {
-        console.log("Why")
+        console.log("createCommentService에러")
         logger.error(`App - createUser Service error\n: ${err.message}`);
         return errResponse(baseResponse.DB_ERROR);
     }

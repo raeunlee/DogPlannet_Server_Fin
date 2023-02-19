@@ -54,7 +54,7 @@ exports.postSignIn = async function (email, password) {
         //이메일 조회가 되는지 확인 
         console.log("이메일 확인", emailRows)
 
-        const selectEmail = emailRows[0].email
+        const selectEmail = emailRows[0].email;
 
         // 비밀번호 암호화 확인
         const hashedPassword = await crypto
@@ -68,7 +68,7 @@ exports.postSignIn = async function (email, password) {
         //check용 여기가 지금 안됨!!
         const selectUserPasswordParams = [selectEmail, hashedPassword];
         const passwordRows = await userModel.passwordCheck(selectUserPasswordParams);
-        console.log(passwordRows[1][2])
+        console.log(passwordRows)
 
         /**if (passwordRows[1][2].password !== hashedPassword) {
             return errResponse(baseResponse.SIGNIN_PASSWORD_WRONG);
@@ -126,7 +126,7 @@ exports.editUser = async function (id, name) {
         logger.error(`App - editUser Service error\n: ${err.message}`);
         return errResponse(baseResponse.DB_ERROR);
     }
-}
+};
 
 
  

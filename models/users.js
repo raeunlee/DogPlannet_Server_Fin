@@ -49,6 +49,10 @@ async function insertUserInfo(connection, insertUserInfoParams) {
   return insertUserInfoRow;
   }
   
+/**
+ * 
+ 
+ */
   // 패스워드 체크
 async function selectUserPassword(connection, selectUserPasswordParams) {
   const selectUserPasswordQuery = `
@@ -59,7 +63,7 @@ async function selectUserPassword(connection, selectUserPasswordParams) {
       selectUserPasswordQuery,
       selectUserPasswordParams
   );
-  
+  // console.log('passwordRows:', passwordRows); 
   return selectUserPasswordRow;
   }
   
@@ -130,7 +134,7 @@ async function passwordCheck(selectUserPasswordParams) {
       selectUserPasswordParams
     );
     connection.release();
-    return passwordCheckResult;
+    return passwordCheckResult[0];
   };
   
 async function accountCheck(email) {

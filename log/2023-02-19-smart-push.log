@@ -1,0 +1,7 @@
+{"level":"error","message":"App - postSignIn Service error\n: Cannot read properties of undefined (reading 'password') \n{}","timestamp":"2023-02-19 17:37:48"}
+{"level":"error","message":"App - postSignIn Service error\n: passwordRows is not defined \n{}","timestamp":"2023-02-19 17:47:45"}
+{"level":"error","message":"App - postSignIn Service error\n: email is not defined \n{}","timestamp":"2023-02-19 17:52:18"}
+{"level":"error","message":"App - postSignIn Service error\n: email is not defined \n{}","timestamp":"2023-02-19 17:52:36"}
+{"level":"error","message":"App - postSignIn Service error\n: email is not defined \n{}","timestamp":"2023-02-19 17:53:35"}
+{"level":"error","message":"App - postSignIn Service error\n: passwordRows is not defined \n{}","timestamp":"2023-02-19 17:58:02"}
+{"level":"error","message":"App - postSignIn Service error\n: email is not defined \n{}","timestamp":"2023-02-19 17:59:58"}

@@ -145,6 +145,7 @@ exports.login = async function (req, res) {
         return res.send(response(baseResponse.SIGNUP_PASSWORD_LENGTH));
     
     const signInResponse = await userService.postSignIn(email, password);
+    console.log(signInResponse);
     return res.send(signInResponse);
 };
 

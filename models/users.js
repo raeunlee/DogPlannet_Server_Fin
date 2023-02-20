@@ -63,14 +63,13 @@ async function selectUserPassword(connection, selectUserPasswordParams) {
       selectUserPasswordQuery,
       selectUserPasswordParams
   );
-  // console.log('passwordRows:', passwordRows); 
   return selectUserPasswordRow;
   }
   
   // 유저 계정 상태 체크 (jwt 생성 위해 id 값도 가져온다.)
 async function selectUserAccount(connection, email) {
   const selectUserAccountQuery = `
-          SELECT status, id
+          SELECT id
           FROM Users
           WHERE email = ?;`;
   const selectUserAccountRow = await connection.query(
@@ -130,11 +129,11 @@ async function emailCheck(email) {
 async function passwordCheck(selectUserPasswordParams) {
     const connection = await pool.getConnection(async (conn) => conn);
     const passwordCheckResult = await selectUserPassword(
-      connection,  
+      connection,
       selectUserPasswordParams
     );
     connection.release();
-    return passwordCheckResult[0];
+    return Object.values(passwordCheckResult[0]);
   };
   
 async function accountCheck(email) {

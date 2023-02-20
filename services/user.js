@@ -55,6 +55,7 @@ exports.postSignIn = async function (email, password) {
         console.log("이메일 확인", emailRows)
 
         const selectEmail = emailRows[0].email;
+        console.log(`email:${selectEmail}`)
 
         // 비밀번호 암호화 확인
         const hashedPassword = await crypto
@@ -62,13 +63,8 @@ exports.postSignIn = async function (email, password) {
             .update(password)
             .digest("hex");
 
-        console.log("입력비번", password)
-        console.log(hashedPassword)   
-
-        //check용 여기가 지금 안됨!!
         const selectUserPasswordParams = [selectEmail, hashedPassword];
         const passwordRows = await userModel.passwordCheck(selectUserPasswordParams);
-        console.log(passwordRows)
 
         /**if (passwordRows[1][2].password !== hashedPassword) {
             return errResponse(baseResponse.SIGNIN_PASSWORD_WRONG);
@@ -76,10 +72,12 @@ exports.postSignIn = async function (email, password) {
         if (passwordRows.length < 1 || passwordRows[0].password !== hashedPassword) {
             return errResponse(baseResponse.SIGNIN_PASSWORD_WRONG);
         }
-         
+
+        //check용 여기가 지금 안됨!!
         // 계정 상태 확인
+        
         const userInfoRows = await userModel.accountCheck(email);
-    
+        /*
         console.log("계정상태?", userInfoRows)
 
         if (userInfoRows[0].status === "INACTIVE") {
@@ -89,7 +87,7 @@ exports.postSignIn = async function (email, password) {
         }
 
         console.log(userInfoRows[0].id) // DB의 userId(생성된)
-
+        */
         //토큰 생성 Service
         let token = await jwt.sign(
             {
